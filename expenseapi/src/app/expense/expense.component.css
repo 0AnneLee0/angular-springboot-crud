@@ -1,0 +1,62 @@
+/* Formats table styles */
+:host /deep/ ng2-smart-table table {
+    font-size: 14px;
+    display: table;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 10px;
+    max-height: 500px;
+    width: 100%;
+}
+
+/* Formats table headers */
+:host /deep/ ng2-smart-table thead > tr.ng2-smart-titles > th {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+:host /deep/ ng2-smart-table a {
+    color: #2d413d;
+}
+
+/* Formats input/select box */
+/* :host /deep/ input.form-control.ng-pristine.ng-valid.ng-touched:active {
+    border-color: #b1c6c5;
+}
+
+:host /deep/ input.form-control.ng-pristine.ng-valid.ng-touched:focus {
+    border-color: #b1c6c5;
+} */
+
+
+/* Formats icon styles */
+:host>>>i {
+    color: #2d413d;
+}
+
+
+/* Formats pagination styles and position */
+:host /deep/ ng2-smart-table-pager {
+    margin-left: 10px;
+}
+
+:host /deep/ ng2-smart-table-pager > nav > ul {
+    margin: 0;
+    padding: 0;
+    color: #2d413d;
+    font-weight: bold;
+}
+
+/* Color for active page button */
+:host /deep/ ng2-smart-table-pager > nav > ul > li.active > span {
+    border-color: #2d413d;
+    background-color: #2d413d;
+}
+
+/* Color for active page button hover */
+:host /deep/ ng2-smart-table-pager > nav > ul > li.active > span:hover {
+    background-color: #3f5753;
+    border-color: #2d413d;
+}
+

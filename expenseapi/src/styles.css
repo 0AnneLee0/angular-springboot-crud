@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+/* See component .css files for component specific styling:
+    NG2-SMART-TABLE 
+    HEADER
+    FOOTER 
+*/
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+    height: 500px;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #2d413d;
+    height: 100%;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+}
+
+body {
+    background-color: #b1c6c5;
+    height: 100%;
+    margin: 0;
+}
+
+.col-xs-12 {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: white;
+    border-radius: 20px;
+    overflow-x: scroll;
+    margin-left: 10px;
+    margin-bottom: 24px;
+    padding: 3px;
+}
+
+label {
+    float: left;
+    text-align: left;
+    width: 130px;
+}
+
+select#category {
+    float: right;
+    width: 200px;
+    border-radius: 0;
+    height: 26px;
+    padding: 0;
+}
+
+input {
+    width: 200px;
+}
+
+table, tr, th, td {
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 5px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+}
+
+hr {
+    border-style: solid;
+    border-color: #2d413d;
+    border-width: 3px;
+    width: 100%;
+    padding-top: 0;
+    margin-top: 0;
+}
