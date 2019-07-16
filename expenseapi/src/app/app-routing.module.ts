@@ -1,21 +1,21 @@
-// import { NgModule } from "@angular/core";
-// import { Routes, RouterModule } from '@angular/router';
-// import { BarChartComponent } from './bar-chart/bar-chart.component';
-// import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from '@angular/router';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
-// const appRoutes: Routes = [
-//     {path: '', redirectTo: 'expense', pathMatch: 'full'},
-//     // {path: 'create', component: },
-//     // {path: 'get', component: },
-//     // {path: 'pie-chart', component: PieChartComponent},
-//     // {path: 'bar-chart', component: BarChartComponent},
-//     // {path: '**', component: BarChartComponent},
-//     // {path: '', redirect: "/", pathMatch: 'full' }
-// ]
+const appRoutes: Routes = [
+    // {path: '', component: HomeComponent},
+    {path: 'table', component: ExpenseComponent},
+    {path: 'pie-chart', component: PieChartComponent},
+    {path: 'bar-chart', component: BarChartComponent},
+    // {path: '**', component: BarChartComponent},
+    // {path: '', redirect: "/", pathMatch: 'full' }
+]
 
 
-// @NgModule({
-//     imports: [RouterModule.forRoot(appRoutes)],
-//     exports: [RouterModule]
-// })
-// export class AppRoutingModule { }
+@NgModule({
+    imports: [RouterModule.forRoot(appRoutes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }

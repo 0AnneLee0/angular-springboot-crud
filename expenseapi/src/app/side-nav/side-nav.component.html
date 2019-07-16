@@ -1,6 +1,33 @@
 <div>
-    <p><a class="nav-link" routerLink="">Link</a></p>
-    <p><a class="nav-link" routerLink="/pie-chart">Link</a></p>
-    <p><a class="nav-link" routerLink="/bar-chart">Link</a></p>
-    <p><a class="nav-link" routerLink="">Link</a></p>
+    <ul>
+        <li class="nav-link" 
+        routerLinkActive="acive"
+        [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink="/">Home</a>
+        </li>
+        <li class="nav-link" 
+            routerLinkActive="acive" 
+            [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/table">Table</a>
+        </li>
+        <li class="nav-link" 
+            routerLinkActive="acive" 
+            [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/pie-chart">Pie Chart</a>
+        </li>
+        <li class="nav-link" 
+            routerLinkActive="acive" 
+            [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/bar-chart">Bar Chart</a>
+        </li>
+    </ul>
 </div>
+
+<!-- 
+    "/path" absolute path appends to root level. 
+    "path" relative path appends "/path" to current acive route. 
+    "../path", etc. allows you to navigate folder paths.
+
+    routerLinkActive displays the active link.
+    routerLinkActiveOptions active if active link is absolute match to routerLink.
+-->

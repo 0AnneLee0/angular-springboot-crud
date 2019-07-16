@@ -38,7 +38,7 @@ export class ExpenseComponent implements OnInit {
   }
 
   //Gets all expenses.
-  getExpenses(): void {
+  getExpenses():void {
     this.expenseSvc.getAllEntries().subscribe(
       (expenseData: any[]) => {
         this.expenses = expenseData;

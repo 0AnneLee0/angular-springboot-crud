@@ -11,10 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ChartsModule } from 'ng2-charts';
-import { ChartsComponent } from './bar-chart/bar-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { KeysPipe } from './keys.pipe';
-// import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { KeysPipe } from './keys.pipe';
     FooterComponent,
     SideNavComponent,
     KeysPipe,
-    ChartsComponent,
+    BarChartComponent,
     PieChartComponent
   ],
   imports: [
@@ -33,7 +33,7 @@ import { KeysPipe } from './keys.pipe';
     FormsModule,
     ChartsModule,
     Ng2SmartTableModule,
-    // AppRoutingModule
+    AppRoutingModule
   ],
   providers: [ExpenseService],
   bootstrap: [AppComponent]

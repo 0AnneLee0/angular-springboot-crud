@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Expense } from '../expense/expense';
-import { Category } from '../expense/category.model';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ChartOptions } from 'chart.js';
 import { ExpenseService } from '../expense/expense.service';
+import { transformAll } from '@angular/compiler/src/render3/r3_ast';
 
 // npm install ng2-charts
 // npm install chart.js
@@ -16,36 +13,35 @@ import { ExpenseService } from '../expense/expense.service';
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css']
 })
-export class ChartsComponent implements OnInit {
+export class BarChartComponent implements OnInit {
   
-  // HttpClient by default formats the response to JSON.
-  constructor(
-    private httpSvc: HttpClient,
-    private expenseSvc: ExpenseService
-  ) {}
+  constructor(private expenseSvc: ExpenseService) {}
 
-  url = environment.baseUrl;
-
-  expense: Expense[];
-  categories: Category[];
-  category:String[] = [];
   date:Date[] = [];
   amount:number[] = [];
 
   ngOnInit() {
-    // Returns total for each category.
-    this.expenseSvc.getTotalsByCategory().subscribe(
-      (totalsData: any[]) => {
-        totalsData.forEach(y => {
-          this.amount.push(y[1].toFixed(2));
-          this.category.push(y[0]);
-        });
+    // Creates array for each field: expense and date.
+    this.expenseSvc.getAllEntries().subscribe(
+      (data: any[]) => {
+        data.forEach(y => {
+          this.amount.push(y.expense.toFixed(2));
+          this.date.push(y.date);
       });
+    });
   }
 
   public barChartOptions: ChartOptions = {
-    scales: {xAxes: [{}], yAxes:[{}]},
+    scales: {
+      xAxes: [{
+        categoryPercentage: 1.0
+      }], 
+      yAxes:[{}]},
     responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'left'
+    },
     plugins: {
       datalabels: {
         anchor:'end',
@@ -53,8 +49,8 @@ export class ChartsComponent implements OnInit {
       }
     }
   };
-
-  public barChartLabels = this.category;
+  
+  public barChartLabels = this.date;
 
   public barChartType = 'bar';
 
@@ -67,4 +63,26 @@ export class ChartsComponent implements OnInit {
     data: this.amount
   }];
 
+
+  // events
+  // public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  //   console.log(event, active);
+  // }
+
+  // public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  //   console.log(event, active);
+  // }
+
+  // public randomize(): void {
+  //   // Only Change 3 values
+  //   const data = [
+  //     Math.round(Math.random() * 100),
+  //     59,
+  //     80,
+  //     (Math.random() * 100),
+  //     56,
+  //     (Math.random() * 100),
+  //     40];
+  //   this.barChartData[0].data = data;
+  // }
 }

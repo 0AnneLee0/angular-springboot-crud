@@ -1,7 +1,11 @@
-<div>
-    <div class="display:block">
-        <canvas baseChart 
-            [datasets]="barChartData" 
+<!-- Using Bar Chart to show comparison between total spending by date. -->
+
+<div class="content-container" style="position: relative; height: 450px;">
+    <h3>Date vs. Expenses Chart</h3>
+    <hr>
+    <div id="chart-container" [style.height.px]="barChartLabels.length * 60">
+        <canvas 
+            baseChart [datasets]="barChartData" 
             [labels]="barChartLabels" 
             [options]="barChartOptions"
             [legend]="barChartLegend" 

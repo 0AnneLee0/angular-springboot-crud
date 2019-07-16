@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpenseService } from '../expense/expense.service';
+import { ChartOptions, ChartType } from 'chart.js';
+import { Label } from 'ng2-charts';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-pie-chart',
@@ -7,9 +11,81 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PieChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private expenseSvc: ExpenseService) {}
+
+  amount:number[] = [];
+  category:Label[] = [];
 
   ngOnInit() {
+    // Creates array for total and category for each category.
+    this.expenseSvc.getTotalsByCategory().subscribe(
+      (data: any[]) => {
+        data.forEach(y => {
+          this.amount.push(y[1].toFixed(2));
+          this.category.push(y[0]);
+      });
+    });
   }
 
+  public pieChartLabels: Label[] = this.category;
+  public pieChartData: number[] = this.amount;
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartPlugins = [pluginDataLabels];
+  public pieChartColors = [
+    {
+      backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+    },
+  ];
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'bottom',
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
+  };
+
+  // events
+  //  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  //   console.log(event, active);
+  // }
+
+  // public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  //   console.log(event, active);
+  // }
+
+  // changeLabels() {
+  //   const words = ['hen', 'variable', 'embryo', 'instal', 'pleasant', 'physical', 'bomber', 'army', 'add', 'film',
+  //     'conductor', 'comfortable', 'flourish', 'establish', 'circumstance', 'chimney', 'crack', 'hall', 'energy',
+  //     'treat', 'window', 'shareholder', 'division', 'disk', 'temptation', 'chord', 'left', 'hospital', 'beef',
+  //     'patrol', 'satisfied', 'academy', 'acceptance', 'ivory', 'aquarium', 'building', 'store', 'replace', 'language',
+  //     'redeem', 'honest', 'intention', 'silk', 'opera', 'sleep', 'innocent', 'ignore', 'suite', 'applaud', 'funny'];
+  //   const randomWord = () => words[Math.trunc(Math.random() * words.length)];
+  //   this.pieChartLabels = Array.apply(null, { length: 3 }).map(_ => randomWord());
+  // }
+
+  // addSlice() {
+  //   this.pieChartLabels.push(['Line 1', 'Line 2', 'Line 3']);
+  //   this.pieChartData.push(400);
+  //   this.pieChartColors[0].backgroundColor.push('rgba(196,79,244,0.3)');
+  // }
+
+  // removeSlice() {
+  //   this.pieChartLabels.pop();
+  //   this.pieChartData.pop();
+  //   this.pieChartColors[0].backgroundColor.pop();
+  // }
+
+  // changeLegendPosition() {
+  //   this.pieChartOptions.legend.position = this.pieChartOptions.legend.position === 'left' ? 'top' : 'left';
+  // }
 }

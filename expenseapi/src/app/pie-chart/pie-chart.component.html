@@ -1,1 +1,17 @@
-<p>pie-chart works!</p>
+<!-- Using Pie Chart to show comparison of total spending by category. -->
+
+<div class="content-container" style="position: relative; height: 450px;">
+  <h3>Total Category Expense Chart</h3>
+  <hr>
+  <div id="chart-container" [style.height.px]="pieChartLabels.length * 60">
+    <canvas baseChart
+      [data]="pieChartData"
+      [labels]="pieChartLabels"
+      [chartType]="pieChartType"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+      [colors]="pieChartColors"
+      [legend]="pieChartLegend">
+    </canvas>
+  </div>
+</div>
