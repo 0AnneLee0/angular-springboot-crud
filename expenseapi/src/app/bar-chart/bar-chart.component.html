@@ -3,7 +3,8 @@
 <div class="content-container" style="position: relative; height: 450px;">
     <h3>Date vs. Expenses Chart</h3>
     <hr>
-    <div id="chart-container" [style.height.px]="barChartLabels.length * 60">
+    <div id="chart-container" 
+    style="height:60vh; width:60vw;">
         <canvas 
             baseChart [datasets]="barChartData" 
             [labels]="barChartLabels" 

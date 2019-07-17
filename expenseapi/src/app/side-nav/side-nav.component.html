@@ -1,24 +1,32 @@
 <div>
-    <ul>
-        <li class="nav-link" 
-        routerLinkActive="acive"
-        [routerLinkActiveOptions]="{exact: true}">
-        <a routerLink="/">Home</a>
+    <ul class="nav flex-column">
+        <li class="nav-list">
+            <a routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+                routerLink="/">
+                <span class="nav-link-text">Home</span>
+            </a>
         </li>
-        <li class="nav-link" 
-            routerLinkActive="acive" 
-            [routerLinkActiveOptions]="{exact: true}">
-            <a routerLink="/table">Table</a>
+        <li class="nav-list">
+            <a routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLink="/table">
+                <span class="nav-link-text">Table</span>
+            </a>
         </li>
-        <li class="nav-link" 
-            routerLinkActive="acive" 
-            [routerLinkActiveOptions]="{exact: true}">
-            <a routerLink="/pie-chart">Pie Chart</a>
+        <li class="nav-list">
+            <a routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLink="/pie-chart">
+                <span class="nav-link-text">Pie Chart</span>
+            </a>
         </li>
-        <li class="nav-link" 
-            routerLinkActive="acive" 
-            [routerLinkActiveOptions]="{exact: true}">
-            <a routerLink="/bar-chart">Bar Chart</a>
+        <li class="nav-list">
+            <a routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLink="/bar-chart">
+                <span class="nav-link-text">Bar Chart</span>
+            </a>
         </li>
     </ul>
 </div>

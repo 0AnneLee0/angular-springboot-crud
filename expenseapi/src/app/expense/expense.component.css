@@ -17,22 +17,22 @@
 }
 
 :host /deep/ ng2-smart-table a {
-    color: #2d413d;
+    color: #073452;
 }
 
 /* Formats input/select box */
 /* :host /deep/ input.form-control.ng-pristine.ng-valid.ng-touched:active {
-    border-color: #b1c6c5;
+    border-color: #7d9aad;
 }
 
 :host /deep/ input.form-control.ng-pristine.ng-valid.ng-touched:focus {
-    border-color: #b1c6c5;
+    border-color: #7d9aad;
 } */
 
 
 /* Formats icon styles */
 :host>>>i {
-    color: #2d413d;
+    color: #073452;
 }
 
 
@@ -44,19 +44,19 @@
 :host /deep/ ng2-smart-table-pager > nav > ul {
     margin: 0;
     padding: 0;
-    color: #2d413d;
+    color: #073452;
     font-weight: bold;
 }
 
 /* Color for active page button */
 :host /deep/ ng2-smart-table-pager > nav > ul > li.active > span {
-    border-color: #2d413d;
-    background-color: #2d413d;
+    border-color: #073452;
+    background-color: #073452;
 }
 
 /* Color for active page button hover */
 :host /deep/ ng2-smart-table-pager > nav > ul > li.active > span:hover {
-    background-color: #3f5753;
-    border-color: #2d413d;
+    background-color: #47667a;
+    border-color: #073452;
 }
 

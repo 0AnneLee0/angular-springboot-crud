@@ -34,7 +34,12 @@ export class PieChartComponent implements OnInit {
   public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
-      backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+      backgroundColor: [
+        'rgba(136,194,19,0.3)', 
+        'rgba(11, 82, 23,0.3)', 
+        'rgba(12,102,122,0.3)', 
+        'rgba(54,9,112,0.3)', 
+        'rgba(190,129,227,0.3)'],
     },
   ];
 
@@ -42,15 +47,16 @@ export class PieChartComponent implements OnInit {
     responsive: true,
     maintainAspectRatio: false,
     legend: {
-      position: 'bottom',
+      position: 'right',
+      
     },
     plugins: {
       datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
-      },
+        // formatter: (value, ctx) => {
+        //   const label = ctx.chart.data.labels[ctx.dataIndex];
+        //   return label;
+        // },
+      }
     }
   };
 

@@ -9,3 +9,6 @@
     margin-bottom: 24px;
     padding: 3px;
 }
+div#chart-container {
+    padding-top: 5px;
+}

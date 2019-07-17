@@ -1,6 +1,9 @@
-.nav-link {
+a {
     color: white;
 }
-.nav-link :active {
-    background-color: #3f5753;
+ul.nav.flex-column > li.nav-list > a:hover{
+    background-color: #47667a !important;
+}
+.active{
+    background-color: #47667a !important;
 }
