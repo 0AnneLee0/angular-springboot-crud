@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseService } from './expense.service';
-import { Expense } from './expense';
-import { Category } from './category.model';
+import { Expense } from '../shared/expense.model';
+
 // import { Category } from './category.model';
 
 @Component({
@@ -27,7 +27,6 @@ export class ExpenseComponent implements OnInit {
   expenses: Expense[];
   expense = new Expense();
   totalRec: number;
-  totals: Category[];
   total: number;
   grandTotal: number;
 
@@ -100,15 +99,6 @@ export class ExpenseComponent implements OnInit {
       });
   }
 
-  // Returns total for each category.
-  getTotalByCategory(): void {
-    this.expenseSvc.getTotalsByCategory().subscribe(
-      (totalsData: any[]) => {
-        this.totals = totalsData;
-        console.log(this.totals);
-      });
-  }
-
 
   // ng2-smart-table action buttons
   onCreateConfirm(event) {
@@ -174,7 +164,16 @@ export class ExpenseComponent implements OnInit {
       },
       date: {
         title: 'Date',
-        width: '10%'
+        width: '10%',
+        type: 'custom',
+        // renderComponent: 
+        // editor: {
+        //   type: 'custom',
+        //   component: Bsd,
+        //   config: {
+        //     format: 'yyyy/mm/dd'
+        //   }
+        // }
       },
       expense: {
         title: 'Amount',

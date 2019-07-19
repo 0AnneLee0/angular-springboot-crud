@@ -29,6 +29,7 @@ export class BarChartComponent implements OnInit {
           this.date.push(y.date);
       });
     });
+    
   }
 
   public barChartOptions: ChartOptions = {
@@ -79,10 +80,11 @@ export class BarChartComponent implements OnInit {
     // Formats number value into USD currency format.
     valuePrepareFunction: (value) => { return value === 'Total' ? value : Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value) },
     data: this.amount,
-    backgroundColor: 'rgba(5, 79, 62)',
+    backgroundColor: 'rgba(11, 82, 23,0.3)',
+
     borderWidth: 0,
     hoverBackgroundColor: 'rgba(12,102,122)',
-    hoverBorderWidth: 0
+    hoverBorderWidth: 0      
   }];
 
 

@@ -7,14 +7,17 @@ import { ExpenseService } from './expense/expense.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './main/main.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
-import { KeysPipe } from './keys.pipe';
-import { AppRoutingModule } from './app-routing.module';
+import { KeysPipe } from './shared/keys.pipe';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     SideNavComponent,
     KeysPipe,
     BarChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     ChartsModule,
     Ng2SmartTableModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [ExpenseService],
   bootstrap: [AppComponent]

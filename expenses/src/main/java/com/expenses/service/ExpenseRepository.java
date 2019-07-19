@@ -32,4 +32,21 @@ public interface ExpenseRepository extends JpaRepository<ExpenseInfo, Long> {
 	List<Object[]> eachCategoryTotal();
 	
 	
+	/* 
+	 * Queries below is work in progress.
+	 */
+	
+	//Returns total expenses for each month 
+//	@Query("SELECT MONTHNAME(date) AS month, SUM(expense) AS totals "
+//			+ "FROM `expense_info` "
+//			+ "WHERE YEAR(date) = 2019  "
+//			+ "GROUP BY month")
+//	List<Object[]> eachMonthTotal();
+	
+	//Returns total expenses for each month by category
+//	@Query("SELECT MONTHNAME(date) AS month, category, SUM(expense) AS totals "
+//			+ "FROM `expense_info` "
+//			+ "WHERE YEAR(date) = 2019 "
+//			+ "GROUP BY month, category")
+//	List<Object[]> totalCategoryByMonth();
 }

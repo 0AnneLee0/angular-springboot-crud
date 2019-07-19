@@ -3,15 +3,36 @@
 <div class="content-container" style="position: relative; height: 450px;">
   <h3>Total Category Expense Chart</h3>
   <hr>
-  <div id="chart-container" style="height:50vh; width:50vw;">
-    <canvas baseChart
-      [data]="pieChartData"
-      [labels]="pieChartLabels"
-      [chartType]="pieChartType"
-      [options]="pieChartOptions"
-      [plugins]="pieChartPlugins"
-      [colors]="pieChartColors"
-      [legend]="pieChartLegend">
-    </canvas>
+  <div class="row col-md-12">
+    <div class="col-md-5" id="chart-container" style="height:50vh; width:30vw;">
+      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+        [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+      </canvas>
+    </div>
+    <div class="col-md-7">
+      <p>Category 
+        <span class="tab">Total by Category</span>
+        <span class="tab">% of Total Expenses</span>
+      </p>
+      <div class="row">
+        <div class="col-md-3">
+          <li *ngFor="let total of totals">
+            {{total[0] | titlecase}}
+          </li>
+        </div>
+        <div class="col-md-3">
+          <li *ngFor="let total of totals">
+            {{total[1] | currency:$}}
+          </li>
+        </div>
+        <div class="col-md-6">
+            <li *ngFor="let total of totals">
+              {{total[1]/grandTotal | percent}}
+            </li>
+          </div>
+      </div>
+      <br>
+      <p>Total Expenses: <span class="total-tab">{{grandTotal | currency:$}}</span></p>
+    </div>
   </div>
 </div>

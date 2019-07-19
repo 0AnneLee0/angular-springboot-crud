@@ -3,6 +3,7 @@ import { ExpenseService } from '../expense/expense.service';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { Category } from '../shared/category.model';
 
 @Component({
   selector: 'app-pie-chart',
@@ -13,16 +14,21 @@ export class PieChartComponent implements OnInit {
 
   constructor(private expenseSvc: ExpenseService) {}
 
-  amount:number[] = [];
-  category:Label[] = [];
+  totals: Category[];
+  amount: number[] = [];
+  category: Label[] = [];
+  grandTotal: number = 0;
 
   ngOnInit() {
-    // Creates array for total and category for each category.
+    
+    // Returns total for each category and creates array for total and category.
     this.expenseSvc.getTotalsByCategory().subscribe(
-      (data: any[]) => {
-        data.forEach(y => {
+      (totalsData: any[]) => {
+        this.totals = totalsData;
+        totalsData.forEach(y => {
           this.amount.push(y[1].toFixed(2));
           this.category.push(y[0]);
+          this.grandTotal += Number(y[1]);
       });
     });
   }
@@ -47,11 +53,11 @@ export class PieChartComponent implements OnInit {
     responsive: true,
     maintainAspectRatio: false,
     legend: {
-      position: 'right',
-      
+      position: 'left',
     },
     plugins: {
       datalabels: {
+        display:false
         // formatter: (value, ctx) => {
         //   const label = ctx.chart.data.labels[ctx.dataIndex];
         //   return label;
